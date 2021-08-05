@@ -11,11 +11,11 @@ export default function Login() {
 
   const submit = async (e: SyntheticEvent) => {
     e.preventDefault();
-
+    
     await api.post('api/admin/login', {
       email,
       password,
-    }, { withCredentials: true });
+    });
 
     setRedirect(true);
   }
