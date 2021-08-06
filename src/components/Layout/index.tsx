@@ -3,16 +3,18 @@ import { Redirect } from 'react-router-dom'
 import api from '../../services/api'
 import Menu from '../Menu'
 import Nav from '../Nav'
-
+import { User } from '../../models/user'
 
 export default function Layout({ children }: any) {
     const [redirect, setRedirect] = useState(false)
+    const [user, setUser] = useState<User | null>(null)
 
     useEffect(() => {
         ( //how to create a async function inside the hook useEffect
             async () => {
                 try {
                     const response = await api.get('api/admin/user');
+                    setUser(response.data)
                     console.log(response.data)
                 } catch (e) {
                     setRedirect(true)
@@ -28,7 +30,7 @@ export default function Layout({ children }: any) {
     return (
         <div>
             <div className="App">
-                <Nav />
+                <Nav user={user} />
                 <div className="container-fluid">
                     <div className="row">
                         <Menu />

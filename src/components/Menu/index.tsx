@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const index = () => {
   return (
@@ -6,10 +7,10 @@ const index = () => {
       <div className="position-sticky pt-3">
         <ul className="nav flex-column">
           <li className="nav-item">
-            <a className="nav-link active" aria-current="page" href="#">
+            <NavLink to={'/users'} className="nav-link" aria-current="page">
               <span data-feather="home"></span>
-              Dashboard
-            </a>
+              Users
+            </NavLink>
           </li>
         </ul>
       </div>

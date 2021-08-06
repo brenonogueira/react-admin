@@ -1,29 +1,43 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Layout from '../components/Layout'
-import Menu from '../components/Menu'
-import Nav from '../components/Nav'
+import { User } from '../models/user'
+import api from '../services/api'
+
 
 export default function Users() {
+  const [users, setUsers] = useState<User[]>([])
+
+  useEffect(() => {
+    (
+      async () => {
+        const response = await api.get('api/admin/ambassadors');
+        setUsers(response.data)
+      }
+    )()
+  }, [])
+
   return (
     <Layout>
       <table className="table table-striped table-sm">
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">Header</th>
-            <th scope="col">Header</th>
-            <th scope="col">Header</th>
-            <th scope="col">Header</th>
+            <th scope="col">Name</th>
+            <th scope="col">E-mail</th>
+            <th scope="col">Actions</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1,001</td>
-            <td>random</td>
-            <td>data</td>
-            <td>placeholder</td>
-            <td>text</td>
-          </tr>
+          {users.map(user => {
+            return (
+              <tr key={user.id}>
+                <td>{user.id}</td>
+                <td>{user.first_name} {user.last_name}</td>
+                <td>{user.email}</td>
+                <td></td>
+              </tr>
+            )
+          })}
         </tbody>
       </table>
     </Layout>

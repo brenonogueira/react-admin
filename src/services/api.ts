@@ -5,8 +5,4 @@ const api = axios.create({
   withCredentials: true
 });
 
-axios.defaults.withCredentials = true;
-
-const api2 = axios.defaults.withCredentials = true;
-
 export default api;

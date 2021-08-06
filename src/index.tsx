@@ -6,8 +6,6 @@ import reportWebVitals from './reportWebVitals';
 import api from './services/api';
 import axios from 'axios';
 
-axios.defaults.withCredentials = true;
-
 ReactDOM.render(
   <React.StrictMode>
     <App />
