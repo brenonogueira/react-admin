@@ -5,6 +5,7 @@ import Users from './pages/Users';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import { RedirectToUsers } from './components/RedirectToUsers';
+import Links from './pages/Links';
 
 
 function App() {
@@ -12,9 +13,10 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Route path={'/'} exact component={RedirectToUsers} />
-        <Route path={'/users'} component={Users} />
+        <Route path={'/users'} exact component={Users} />
         <Route path={'/login'} component={Login} />
         <Route path={'/register'} component={Register} />
+        <Route path={'/users/:id/links'} component={Links} />
       </BrowserRouter>
     </div>
   );
