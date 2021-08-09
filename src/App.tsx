@@ -6,6 +6,8 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import { RedirectToUsers } from './components/RedirectToUsers';
 import Links from './pages/Links';
+import Products from './pages/products/Products';
+import ProductForm from './pages/products/ProductForm'
 
 
 function App() {
@@ -17,6 +19,9 @@ function App() {
         <Route path={'/login'} component={Login} />
         <Route path={'/register'} component={Register} />
         <Route path={'/users/:id/links'} component={Links} />
+        <Route path={'/products'} exact component={Products} />
+        <Route path={'/products/create'} component={ProductForm} />
+        <Route path={'/products/:id/edit'} component={ProductForm} />
       </BrowserRouter>
     </div>
   );

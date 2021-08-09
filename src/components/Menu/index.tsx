@@ -12,6 +12,12 @@ const index = () => {
               Users
             </NavLink>
           </li>
+          <li className="nav-item">
+            <NavLink to={'/products'} className="nav-link" aria-current="page">
+              <span data-feather="home"></span>
+              Products
+            </NavLink>
+          </li>
         </ul>
       </div>
     </nav>
